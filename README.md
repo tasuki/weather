@@ -13,6 +13,12 @@ mise install
 ## Develop
 
 ```
-gleam run
+gleam run -m backend_reloader
 gleam test
+```
+
+## Production
+
+```
+gleam run -m backend
 ```
