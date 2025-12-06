@@ -10,15 +10,20 @@ One needs [mise](https://mise.jdx.dev/). I used `2025.4.1`.
 mise install
 ```
 
+Create a `mise.local.toml` and define `SECRET_KEY_BASE`.
+
 ## Develop
 
 ```
-gleam run -m backend_reloader
+mise run dev
+```
+
+```
 gleam test
 ```
 
 ## Production
 
 ```
-gleam run -m backend
+mise run prod
 ```

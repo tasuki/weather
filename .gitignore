@@ -1,3 +1,7 @@
+# mise
+/mise.local.toml
+
+# gleam/beam
 *.beam
 *.ez
 /build
