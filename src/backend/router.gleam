@@ -1,4 +1,6 @@
 import gleam/json
+import gleam/string
+import providers/openmeteo
 import utils.{json_200, json_400, json_404, parse_float}
 import wisp.{type Request, type Response}
 
@@ -7,11 +9,13 @@ pub fn handle_request(req: Request) -> Response {
     [] -> home(req)
     ["lat", lat_str, "lon", lon_str] ->
       case parse_float(lat_str), parse_float(lon_str) {
-        Ok(lat), Ok(lon) ->
+        Ok(lat), Ok(lon) -> {
+          let forecast = openmeteo.fetch_data(lat, lon)
+
           json_200([
-            #("lat", json.float(lat)),
-            #("lon", json.float(lon)),
+            #("response", json.string(string.inspect(forecast))),
           ])
+        }
         _, _ ->
           json_400([
             #("msg", json.string("both lat and lon should be floats")),
