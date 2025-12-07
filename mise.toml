@@ -1,7 +1,7 @@
 [tools]
-erlang = { version = '28.2', backend = "core" }
-rebar = { version = "3.25.1" }
-gleam = { version = "1.13.0", backend = "aqua" }
+erlang = "28.2"
+rebar = "3.25.1"
+gleam = "1.13.0"
 
 [tasks]
 dev = "gleam run -m backend_reloader"
