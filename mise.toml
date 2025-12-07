@@ -2,7 +2,10 @@
 erlang = "28.2"
 rebar = "3.25.1"
 gleam = "1.13.0"
+watchexec = "2.3.2"
 
 [tasks]
-dev = "gleam run -m backend_reloader"
+dev = """watchexec --restart --verbose \
+    --wrap-process=session --exts=gleam --debounce=100ms \
+    -- gleam run -m backend"""
 prod = "gleam run -m backend"
