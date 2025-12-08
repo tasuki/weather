@@ -1,7 +1,7 @@
 import gleam/json
 import gleam/string
 import providers/openmeteo
-import utils.{json_200, json_400, json_404, parse_float}
+import backend/utils.{json_200, json_400, json_404, parse_float}
 import wisp.{type Request, type Response}
 
 pub fn handle_request(req: Request) -> Response {
