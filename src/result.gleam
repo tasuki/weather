@@ -1,29 +1,48 @@
-pub type WeatherResultAtTime {
-  WeatherResultAtTime(
-    // first
-    time: String,
-    // TODO something richer
+pub type TemperatureDetails {
+  TemperatureDetails(
     temperature_c: Float,
-    surface_temperature_c: #(Float, Float),
     // min/max
+    surface_temperature_c: #(Float, Float),
     feels_like_c: Float,
     dew_point_c: Float,
-    // second
+  )
+}
+
+pub type PrecipitationDetails {
+  PrecipitationDetails(
     rain_mm_h: Float,
     snow_mm_h: Float,
     humidity_percent: Int,
-    // third
-    pressure_hpa: Float,
-    // fourth
-    wind_speed_m_s: Float,
-    wind_gusts_m_s: Float,
-    wind_direction_degrees: Int,
+  )
+}
+
+pub type WindDetails {
+  WindDetails(
+    speed_m_s: Float,
+    gusts_m_s: Float,
     // 0-360
-    // fifth
-    cloud_cover_percent: Int,
-    cloud_cover_high: Int,
-    cloud_cover_mid: Int,
-    cloud_cover_low: Int,
-    fog_fraction: Int,
+    direction_degrees: Int,
+  )
+}
+
+pub type CloudDetails {
+  CloudDetails(
+    cover_percent: Int,
+    cover_high: Int,
+    cover_mid: Int,
+    cover_log: Int,
+    fog_area_fraction: Int,
+  )
+}
+
+pub type WeatherResultAtTime {
+  WeatherResultAtTime(
+    // TODO something richer
+    time: String,
+    temp: TemperatureDetails,
+    precip: PrecipitationDetails,
+    pressure_hpa: Float,
+    wind: WindDetails,
+    clouds: CloudDetails,
   )
 }

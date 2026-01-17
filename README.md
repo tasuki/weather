@@ -1,3 +1,5 @@
+> This was a test. I lost interest in it...
+
 # Wonderful Weather Widgets 🌞⛅☔🌩️🌈
 
 I want nice meteograms. Similar to the ones on meteo.pl and perhaps even slightly better.
